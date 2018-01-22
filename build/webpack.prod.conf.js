@@ -71,7 +71,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
       serviceWorkerLoader: `<script>${loadMinified(path.join(__dirname,
-        './service-worker-prod.js'))}</script>`
+        './service-worker-prod.js'))}</script>`,
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
@@ -103,9 +103,9 @@ var webpackConfig = merge(baseWebpackConfig, {
     ]),
     // service worker caching
     new SWPrecacheWebpackPlugin({
-      cacheId: 'cleme-nico',
+      cacheId: 'cleme-nico-2',
       filename: 'service-worker.js',
-      staticFileGlobs: ['dist/**/*.{js,html,css,ttf,svg,woff2?,eot}'],
+      staticFileGlobs: ['dist/**/*.{js,html,css,ttf,svg,woff2?,eot,jpg,png,gif}'],
       minify: true,
       stripPrefix: 'dist/'
     }),
@@ -113,7 +113,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       // Absolute path to compiled SPA
       config.build.assetsRoot,
       // List of routes to prerender
-      [ '/' ]
+      [ '/', '/information', '/hebergements' ]
     )
   ]
 })

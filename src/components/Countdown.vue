@@ -1,5 +1,5 @@
 <template>
-  <div id="countdown">
+  <div class="countdown">
     <p>
       {{days}}{{ $t('days') }} {{hours}}{{ $t('hours') }} {{minutes}}{{ $t('minutes') }} {{seconds}}{{ $t('seconds') }}
     </p>
@@ -47,13 +47,20 @@ export default {
     }
   },
   mounted () {
-    // console.log(this.deadline)
     window.setInterval(() => {
       this.now = Math.trunc((new Date()).getTime() / 1000)
     }, 1000)
-  },
-  beforeCreqte () {
-    console.log(this.deadline)
   }
 }
 </script>
+
+<style lang="scss">
+  .countdown {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    p {
+      font-size: 30px;
+      margin: 0;
+    }
+  }
+</style>

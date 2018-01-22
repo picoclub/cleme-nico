@@ -1,4 +1,7 @@
 @import 'fonts.scss';
+@import 'variables.scss';
+@import 'utilities.scss';
+
 html {
   box-sizing: border-box;
 }
@@ -15,4 +18,8 @@ html, body {
 
 body {
   margin: 0;
+}
+
+a {
+	color: $lavande;
 }
